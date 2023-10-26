@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MapsTestTask</string>
+    <string name="title_map">Map</string>
+    <string name="title_list">List</string>
+
+    <string name="tv_id">Id: %s</string>
+    <string name="tv_title">Title: %s</string>
+</resources>
