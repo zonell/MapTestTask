@@ -1,6 +1,5 @@
 package com.example.mapstesttask.ui.list
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,11 +27,8 @@ class ListViewModel(
                     }
                 }
             }.onFailure {
-                Log.e("!@#!@#", "Error: ${it.message}")
                 _pointList.value = NetworkResponse.Failure(it)
             }
         }
-
     }
-
 }

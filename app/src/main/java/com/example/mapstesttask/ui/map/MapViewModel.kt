@@ -1,6 +1,5 @@
 package com.example.mapstesttask.ui.map
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -31,7 +30,6 @@ class MapViewModel(
                     }
                 }
             }.onFailure {
-                Log.e("!@#!@#", "Error: ${it.message}")
                 _directionLD.value = NetworkResponse.Failure(it)
             }
         }

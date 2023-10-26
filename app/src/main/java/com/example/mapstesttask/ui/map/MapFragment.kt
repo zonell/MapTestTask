@@ -16,12 +16,13 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.overlay.Polyline
 
-
 class MapFragment : Fragment(R.layout.fragment_map) {
 
     private val binding by viewBinding(FragmentMapBinding::bind)
     private val mapViewModel: MapViewModel by viewModel()
 
+    private val startPosition = GeoPoint(50.4501, 30.5234)
+    private val zoomMap = 13.0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,7 +30,6 @@ class MapFragment : Fragment(R.layout.fragment_map) {
         mapViewModel.getRoad()
 
         initMap()
-
         observeDirectionUpdate()
     }
 
@@ -50,7 +50,6 @@ class MapFragment : Fragment(R.layout.fragment_map) {
                     Toast.makeText(requireContext(), it.throwable.message, Toast.LENGTH_LONG).show()
                 }
             }
-
         }
     }
 
@@ -60,9 +59,8 @@ class MapFragment : Fragment(R.layout.fragment_map) {
 
         with(binding) {
             map.setTileSource(TileSourceFactory.DEFAULT_TILE_SOURCE)
-            map.controller.setCenter(GeoPoint(50.4501, 30.5234))
-            map.controller.setZoom(13.0)
-
+            map.controller.setCenter(startPosition)
+            map.controller.setZoom(zoomMap)
             map.setMultiTouchControls(true)
         }
     }
