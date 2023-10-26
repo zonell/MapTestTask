@@ -31,7 +31,7 @@ class PointListAdapter : RecyclerView.Adapter<PointListAdapter.PointListVH>() {
             oldItem: ClubNewsStatusesItem,
             newItem: ClubNewsStatusesItem
         ): Boolean {
-            return oldItem == newItem
+            return oldItem.id == newItem.id
         }
     }
 
